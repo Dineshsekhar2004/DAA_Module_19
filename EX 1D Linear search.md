@@ -1,55 +1,36 @@
 # EX 1D Linear search
-## DATE: 01/03/25
+## DATE:
 ## AIM:
-To write a python program for a search function with parameter list name and the value to be searched.
+To write a python program for a search function with parameter list name and the value to be searched using string values.
 
 ## Algorithm
-1. Start
-
-2. Read an integer x (number of elements).
-
-3. Read x elements into list List.
-
-4. Read the element n to search.
-
-5. For each element in List:
-
-6. If the current element equals n, return its index.
-
-7. If loop ends without a match, return -1.
-
-8. If returned index ≠ -1, print "Found", else print "Not Found".
-
-9. End
+1. Take an integer input representing the number of elements in the list.  
+2. Read the input strings one by one and store them in a list `List`.  
+3. Take another input `n` which is the element to be searched in the list.  
+4. Call the `search` function with the list and the search element `n` as arguments.  
+5. In the `search` function, iterate through each element in the list:  
+6. If an element matches `n`, print that the tuple is found and exit the loop.  
+7. If the loop completes without finding a match, print that the tuple is not found.   
 
 ## Program:
-
-Program to implement a search function with parameter list name and the value to be searched.
-
-Developed by: SABARI AKASH
-Register Number: 212222230124
-
-```PY
-def search(List1,n):
-    for i in range(len(List1)):
-        if (List1[i]==n):
-            return i
-    return -1
-List = [] 
-x=int(input())
-for i in range(x):
-    List.append(input())
-n =input()
-value = search(List, n)
-if value!=-1:
-	print("Found")
-else:
-	print("Not Found")
+```python
+Program to implement a search function with parameter list name and the value to be searched using string values.
+Developed by: MOUNESH P
+Register Number:212222230084
+def search(List,n):
+    for i in List:
+        if i==n:
+            print("Tuple:",n,"found")
+            break
+    else:
+        print("Tuple:",n,"not found")
+List=[float(input()) for _ in range(int(input()))]
+x=float(input())
+search(List,x)
 ```
 
 ## Output:
-
-![image](https://github.com/user-attachments/assets/019556e3-eb2f-475f-9bda-a3b0f81bbd0b)
+![image](https://github.com/user-attachments/assets/3a930069-3fab-4fb6-a12d-958d7663f164)
 
 
 ## Result:

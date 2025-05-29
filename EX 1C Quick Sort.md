@@ -1,91 +1,53 @@
 # EX 1C Quick Sort
-## DATE: 25/02/25
+## DATE:
 ## AIM:
-To write a python program to implement quick sort using tha last element as pivot on the list of string values.
+To write a python program to implement quick sort using tha last element as pivot on the list of float values.
 
 ## Algorithm
-
-1. Start
-
-2. Read an integer n (number of elements).
-
-3. Read n elements into array arr.
-
-4. Call quickSort(arr, 0, n):
-
-5. If the number of elements (end - start) is more than 1:
-
-6. Find the pivot position by calling partition(arr, start, end).
-
-7. Recursively sort the left part: quickSort(arr, start, pivot_index).
-
-8. Recursively sort the right part: quickSort(arr, pivot_index + 1, end).
-
-9. In partition(arr, start, end):
-
-10. Choose the first element as the pivot.
-
-11. Set two pointers i (start+1) and j (end-1).
-
-12. Move i right while arr[i] <= pivot.
-
-13. Move j left while arr[j] >= pivot.
-
-14. If i <= j, swap arr[i] and arr[j].
-
-15. If i > j, swap pivot arr[start] with arr[j] and return j as the pivot's final position.
-
-16. After sorting, print the sorted array.
-
-17. End
-
+1. Take an integer `n` as input representing the number of elements in the list.  
+2. Read `n` integers from the user and store them in a list `nums`.  
+3. Call the quick sort function `qs` with initial left and right indices as 0 and `n-1`.  
+4. In the `qs` function, if the left index `l` is less than the right index `r`, call the `partition` function to find the pivot index `pi`.  
+5. Recursively apply `qs` to the subarrays before and after the pivot index.  
+6. In the `partition` function, select the first element as the pivot, and initialize pointers `i` and `j` at the left and right ends.  
+7. Move pointer `i` forward until an element greater than the pivot is found, and move pointer `j` backward until an element smaller than the pivot is found.  
+8. If `i` is less than or equal to `j`, swap the elements at `i` and `j`, otherwise break the loop.  
+9. After the loop, swap the pivot element with the element at pointer `j`, and return `j` as the pivot index.  
+10. Finally, print the sorted array `nums`.  
 
 ## Program:
-
-Program to implement implement quick sort using the last element as pivot on the list of string values.
-
-Developed by: SABARI AKASH A
-
-Register Number: 212222230124
-
-```PY
-def quickSort(alist, start, end):
-    if end - start > 1:
-        p = partition(alist, start, end)
-        quickSort(alist, start, p)
-        quickSort(alist, p + 1, end)
- 
-def partition(alist, start, end):
-    pivot = alist[start]
-    i = start + 1
-    j = end - 1
-    #print("Pivot: ",pivot)
+```python
+Program to implement implement quick sort using the last element as pivot on the list of float values.
+Developed by: MOUNESH P
+Register Number: 212222230084
+def qs(l,r,nums):
+    if l<r:
+        pi=partition(l,r,nums)
+        qs(l,pi-1,nums)
+        qs(pi+1,r,nums)
+def partition(l,r,nums):
+    pivot,i,j=nums[l],l,r
+    print("Pivot: ",pivot)
     while True:
-        while (i <= j and alist[i] <= pivot):
-            i = i + 1
-        while (i <= j and alist[j] >= pivot):
-            j = j - 1
- 
-        if i <= j:
-            alist[i], alist[j] = alist[j], alist[i]
+        while i<=j and nums[i]<=pivot:
+            i+=1
+        while i<=j and nums[j]>=pivot:
+            j-=1
+        if i<=j:
+            nums[i],nums[j]=nums[j],nums[i]
         else:
-            alist[start], alist[j] = alist[j], alist[start]
-            return j
-
-arr = []
+            break
+    nums[j],nums[l]=nums[l],nums[j]
+    return j
 n=int(input())
-for i in range(n):
-    arr.append(input())
-quickSort(arr, 0, n)
-print("Sorted array is:")
-for i in arr:
-    print(i)
+nums=[int(input()) for i in range(n)]
+qs(0,n-1,nums)
+print("Sorted array:",nums)
 ```
 
 ## Output:
-
-![image](https://github.com/user-attachments/assets/2dbddd18-1b45-4b93-9411-0885928f27be)
+![image](https://github.com/user-attachments/assets/fb3d93bb-8aab-46f5-911e-a3a4cddd89df)
 
 
 ## Result:
-Thus the python program to implement quick sort using tha last element as pivot on the list of string values is successfully executed.
+The program successfully sorts the input array using the QuickSort algorithm, arranging the elements in ascending order.
